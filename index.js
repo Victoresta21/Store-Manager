@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sales = require('./router/salesroute');
 const products = require('./router/productsroute');
+const errorHandler = require('./middlewares/error');
 require('dotenv').config();
 
 const app = express();
@@ -15,6 +16,8 @@ app.get('/', (_request, response) => {
 
 app.use('/sales', sales);
 app.use('/products', products);
+
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Escutando na porta ${PORT}`);
