@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const itemSchema = Joi.object({
-  productId: Joi.nunber().required(),
+  productId: Joi.required(),
   quantity: Joi.number().integer().min(1).required(),
 });
 
